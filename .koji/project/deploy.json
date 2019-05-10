@@ -6,7 +6,7 @@
       "commands": [
         "cd frontend",
         "npm install",
-        "export NODE_ENV=production && npm run compile"
+        "export NODE_ENV=production && npm run build"
       ],
       "injections": [
         {
@@ -23,7 +23,7 @@
           ],
           "site": "<head>",
           "position": "after",
-          "value": "<meta property=\"og:title\" content=\"${metadata.title}\">"
+          "value": "<meta property=\"og:title\" content=\"${metadata.name}\">"
         },
         {
           "paths": [
@@ -39,7 +39,7 @@
           ],
           "site": "<head>",
           "position": "after",
-          "value": "<meta property=\"title\" content=\"${metadata.title}\">"
+          "value": "<meta property=\"title\" content=\"${metadata.name}\">"
         },
         {
           "paths": [
@@ -55,7 +55,23 @@
           ],
           "site": "<head>",
           "position": "after",
-          "value": "<title>${metadata.title}</title>"
+          "value": "<title>${metadata.name}</title>"
+        },
+        {
+          "paths": [
+            "*.html"
+          ],
+          "site": "<head>",
+          "position": "after",
+          "value": "<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create', '${metadata.gaCode}', 'auto');ga('send', 'pageview');</script>"
+        },
+        {
+          "paths": [
+            "*.html"
+          ],
+          "site": "<head>",
+          "position": "after",
+          "value": "<link rel=\"shortcut icon\" href=\"${metadata.icon}\" />"
         }
       ]
     },
