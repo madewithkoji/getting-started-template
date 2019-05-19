@@ -72,7 +72,6 @@ const VolumeControl = styled.div`
 const Title = styled.h1`
     font-size: 32px;
     margin: 0;
-    margin-bottom: 12px;
 `;
 
 const Animation = keyframes`
