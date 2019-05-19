@@ -97,7 +97,7 @@ class GameOver extends React.PureComponent {
                 {this.state.screen === 'scores' && (
                     <Modal>
                         <Text>High Scores</Text>
-                        {this.state.scores.concat([{name: this.state.name, score: this.props.score, me: true }]).sort((a, b) => a.score < b.score).slice(0, 10).sort((a, b) => a.score < b.score).map((score, i) => (
+                        {this.state.scores.concat([{name: this.state.name, score: this.props.score, me: true }]).sort((a, b) => a.score < b.score ? 1 : -1).map((score, i) => (
                             <Score me={score.me}>{i + 1}: {score.name} - {score.score}</Score>
                         ))}
                         <Button onClick={() => this.props.onClose()}>Play Again</Button>

@@ -141,7 +141,7 @@ class Game extends React.Component {
         } else {
             // we are done, commit..., and check game over
             setTimeout(() => {
-                this.setState({ busy: false, effects: [], gameOver: this.state.moves === 0 });
+                this.setState({ busy: false, effects: [], gameOver: this.state.moves <= 0 });
             }, Koji.config.general.animationTime);
         }
     }
@@ -257,8 +257,8 @@ class Game extends React.Component {
 
 	render() {
 		return (
-            <Container width={Koji.config.general.width * this.state.blockSize}>
-                <Pieces width={Koji.config.general.width * this.state.blockSize} height={Koji.config.general.height * this.state.blockSize}>
+            <Container width={(Koji.config.general.width * this.state.blockSize) + 10}>
+                <Pieces width={(Koji.config.general.width * this.state.blockSize) + 10} height={(Koji.config.general.height * this.state.blockSize) + 10}>
                     {this.state.board.map((row, x) => row.map((e, y) => (
                         <Piece
                             key={`(${x},${y})`}
