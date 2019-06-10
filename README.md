@@ -1,9 +1,7 @@
 # **Welcome to Koji.**
+<iframe style="border: 10px" width="560" height="315" src="https://www.youtube.com/embed/A_ggdHXYHgA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <h2 style='border-bottom: none'><a target="_blank" href="https://discord.gg/eQuMJF6">Join our Discord Server!</a> There are developers online right now and ready to help you!</h2>
-
-## **Here is a video to help you get started with this template.**
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_7tNpy8o_s4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 You now have a Project that you cloned from the Koji Template Store, and are ready to make it your own. Your project is staged in the cloud (on Amazon EC2 in a Docker Container), and is ready to be deployed at anytime with the click of a button (see “Deploy Project” link at the top left)... **but don’t do that just yet.**
 
@@ -48,71 +46,93 @@ The eye icon slides out a console where you can see logs, errors, etc. It shows 
 
 The box arrow icon opens up a new tab so you can load the preview in full screen.
 
-## File Explorer
+## **On the left, there is a file explorer that consists of three main buckets.**
 
-On the left, there is a file explorer that consists of three sections:
+**1. PROJECT**
 
-- The **Code** section has the various folders and files that comprise your project.
+This holds all of the top-level, Koji-specific features for your project. It has three sections, each with a few sub-sections.
 
-- Above it is the **Configuration** section that lists Visual Customization Controls (VCCs) that we will discuss shortly.
+- _Deploy_
+  - `Deploy now` - Deploy your project to the web
+  - `Domains` - Configure a domain for your project
+  - `Plugins` - Emable Plugins that enable you 
+  - `Scheduled` jobs - Create automated pieces of work for your application on a recurring schedule
+  - `Versions` - View all of the deployed versions of your project & the deployment logs
 
-- Above that is the **Project** section that allows you to control project properties, and Deploy your project to production.
+- _Grow_
+  - `Social sharing` - Share your deployed app to Social Media
+  - `withKoji.com` - Submit your delpoyed app to [WithKoji.com](https://withkoji.com/)
+  - `Analytics` - View your app's preformance
+  - `App Stores` - (Coming Soon) Seamlessly distribute your app to app stores and platforms. 
+  - `Aggregators` - (Coming Soon) Easily submit your application to aggregators like ProductHunt
+  - `Database` - (Coming Soon) Database options & controls
 
-## File Explorer / Code Section
+- _Settings_
+  - `General` - Find your Git repository info
+  - `Development` - Access informations about your development environment
+  - `Activity` - See the most recent project commits
 
-- Koji projects are Git repositories, so you will find a .gitignore file. You will also find a .editorconfig file that specifies some customizable Koji editor parameters. **There is no reason to mess with those files at this time.**
+**2. CUSTOMIZATION**
+- The developer of a template can optionally create configuration files that we call Visual Customization Controls (VCC’s). These files are intended to make it easier for people to customize the design elements of a template. They are JSON files that get rendered as visual interfaces. 
+- You may create additional VCCs by adding a new file to the ~/koji/customization/ directory. 
 
-- This project is a match 3 game similar to CandyCrush. It has a **frontend** and a **backend** (for storing high scores on a leaderboard).
+- **Play around with some VCC's to see how easy it is to customize this game, without touching a single line of code.**
 
-- This game is built with ReactJS, although **Koji supports all kinds of JavaScript projects:** Angular, Vue, React, Polymer, or just raw JavaScript.
 
-- The main file in the **frontend** can be found at `~/frontend/pages/GamePage/index.js` Feel free and play around with the code. You can edit it and save to see the results in the Preview window. This project uses React Styled Components, so you can edit the CSS directly in the JS file.
+**3. CODE**
+- _The first folder in all Koji projects is a grayed folder (.koji). Inside, you will see four folders. You don't need to worry about these files, but feel free to open up the 'about.md' files to learn more about each folder._
+  - `~/koji/customization/...` -- holds the JSON files for your VCC's seen in the _Customization_ section.
+  - `~/koji/hooks/...` -- holds scripts for docker to run after certain events have occurred.
+  - `~/koji/project/...` -- holds all of the neccesary files for your web app to work in koji.
+  - `~/koji/scripts/...` -- holds the scripts that help to package & deploy your application.
 
-- The **backend** is using Express.js, and has two routes (AddScore and GetScores). When you are editing backend js files, there is a live backend preview on the right hand side that allows you to send requests and get responses from the endpoints (so there is no need to use a third party app such as Postman).
+
+- _The following files contain all of the code that makes the application work on. They will vary depending on the application._ 
+  - This project is a "Match Three" game similar to CandyCrush. 
+  - It has a `frontend` and a `backend`.
+  - It is built with ReactJS
+    - **NOTE: Koji supports all kinds of JavaScript projects:** 
+    - Angular, Vue, React, Polymer, or just raw JavaScript.
+  - It uses React `styled-components`, so you can edit the CSS directly in each JS file.
+  - The main file in the `frontend` can be found at `~/frontend/pages/GamePage/index.js` 
+    - Feel free and play around with the code. You can edit it and save to see the results in the Preview window. 
+  - The `backend` (for storing high scores on a leaderboard) uses Express.js, and has two routes: `AddScore` & `GetScores`. 
+    - When you are editing backend js files, there is a live backend preview on the right hand side that allows you to send requests and get responses from the endpoints (so there is no need to use a third party app such as Postman).
+
+- _Lastly, Koji projects are Git repositories, so you will find a .gitignore file. There is no reason to mess with this file at this time._
 
 -------
 
-**The code section also has a hidden folder (.koji) that is colored in gray. If you expand the folder, you will see a number of JSON files.**
+**The code section also has a grayed folder (.koji) that is colored in gray. Inside, you will see a number of folders. You don't need to worry about these files, but feel free to open up the 'about.md' files to learn more about each folder.**
 
-- `~/koji/resources/scripts/buildConfig.js` is a few functions that are used by the editor to parse the project’s directories and facilitate configuration interfaces.
+- `~/koji/customization/...` -- holds the JSON files for your VCC's seen above.
 
-- `~/koji/resources/develop.json` is the configuration of the development environment
+- `~/koji/hooks/...` -- holds scripts for docker to run after certain events have occurred.
 
-- `~/koji/resources/deploy.json` is the configuration of the deployment pipeline
+- `~/koji/project/...` -- holds all of the neccesary files for your web app to work in koji.
 
-The rest of the files in `~/koji/resources/` are optional, and were created by the template developer. These files are parsed by `~/koji/resources/scripts/buildConfig.js` and rendered in the **File Explorer / Configuration section.**
-## File Explorer / Configuration
-
-The developer of a template can optionally create configuration files that we call Visual Customization Controls (VCC’s). These files are intended to make it easier for people who have cloned the template to customize it. They are JSON files, and get rendered as visual interfaces. You may create additional VCCs by adding a new file to the ~/koji/resources/ directory. **You should play around with them to see how easy it is to customize this game, without touching a single line of code.**
-
+- `~/koji/scripts/...` -- holds the scripts that help to package & deploy your application.
 
 ## Koji Collaboration Tools
 
-At the top right of the Koji editor there is a blue “Collaborate” button. Koji makes it easy for multiple people to work on the same code files simultaneously… just like Google Docs. When you click on the Collaborate button, you can get a link to share with people, and ask them to join your session (note: the link will expire 15 minutes after it is created).
+At the top right of the Koji editor there is a blue “Collaborate” button. Koji makes it easy for multiple people to work on the same code files simultaneously, just like Google Docs. **To collaborate with someone:**
+- Click on **'Collaborate'** at the top right of your window
+- You will get a link to share with people & ask them to join your session 
+  - **NOTE: the link will expire 15 minutes after it is created**.
 
 <video width="480px" autoplay loop>
   <source src="https://giant.gfycat.com/TornAshamedLeech.webm" type="video/webm">
 </video>
 
-Once they click on the link, you will be notified that they want to join, and will need to accept them. During the session, the owner of the project is the only one who can choose what files are worked on (the collaborator cannot open files on their own). Once you are done collaborating, either of you may end the session.
-
-## Messaging and Posts
-
-At the top right of the Koji editor, to the left of the Collaborate button, there is a messaging icon. Koji has a built-in instant messenger, similar to Facebook Messenger, so you can easily chat with others on the network.
-
-<video width="480px" autoplay loop>
-  <source src="https://giant.gfycat.com/GrotesqueDearestAxisdeer.webm" type="video/webm">
-</video>
-
-If you have an issue or a request, you may create a “Post”. To view the posts page, go to: https://gokoji.com/posts. Other users of Koji may see your post and reply to it via an instant message to you. This is a good way to ask the community for help if you get stuck on some coding issue. [See video for example](https://youtu.be/0eTLzwVTJUE).
+- Once they click on the link, you will be notified that they want to join, and you will need to accept them. 
+- During the session, the owner of the project is the only one who can choose what files are worked on (the collaborator cannot open files on their own). 
+- Once you are done collaborating, either of you may end the session.
+  - Click on your profile icon
+  - Click **"End Session"**
 
 ## Deploying your project to Production (turning it into a web app)
-
-Koji makes it super easy to deploy your project. Simply click on the “Deploy project” link at the top left, in the File Explorer / Project section. Choose a subdomain for your project, and click the “Deploy Now” button. Koji will automatically package your project, and do all of the dev ops work. It takes less than a minute and you are in production.  
-
-<video width="480px" autoplay loop>
-  <source src="https://giant.gfycat.com/AshamedMindlessCaiman.webm" type="video/webm">
-</video>
+*Click into `Deploy>Deploy now` and follow the instructions at the top of the tab...or watch this short video.*
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RFJfByIuDiE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Koji is moving fast and has new features coming soon!
 
