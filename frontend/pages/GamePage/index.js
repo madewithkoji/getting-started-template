@@ -139,7 +139,6 @@ class HomePage extends React.Component {
         <Container color={this.state.color}>
             <Helmet defaultTitle={Koji.config.general.name}>
                 <link href={Koji.config.general.fontFamily} rel="stylesheet" />
-                <link rel="icon" href={Koji.config.metadata.icon} sizes="32x32" />
             </Helmet>
             <Cover color={this.state.color} colorSwitch={this.state.colorSwitch} />
             <Content>
