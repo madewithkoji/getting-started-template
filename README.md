@@ -1,5 +1,5 @@
 # **Welcome to Koji.**
-<iframe style="border: 10px" width="560" height="315" src="https://www.youtube.com/embed/A_ggdHXYHgA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="border: 10px" width="560" height="315" src="https://www.youtube.com/embed/t5uoqPFInlY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <h2 style='border-bottom: none'><a target="_blank" href="https://discord.gg/eQuMJF6">Join our Discord Server!</a> There are developers online right now and ready to help you!</h2>
 
